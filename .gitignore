@@ -1,4 +1,5 @@
 .idea
 */migrations/*.py
 !*/migrations/__init__.py
-*/local_setting.py
+*/local_settings.py
+db.sqlite3
