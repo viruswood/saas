@@ -3,11 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .account {
+            width: 400px;
+            margin: auto;
+        }
+    </style>
 </head>
 <body>
-<h1>注册</h1>
-{% for field in form %}
-    <p>{{ field.label }}:{{ field }}</p>
-{% endfor %}
+
+
+<div class="account">
+    <h1>注册</h1>
+    <form>
+        {% for field in form %}
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+
+            </div>
+        {% endfor %}
+
+
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+
+</div>
 </body>
 </html>
