@@ -35,7 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app01'
+    'app01.apps.App01Config',
+    'web.apps.WebConfig'
 ]
 
 MIDDLEWARE = [
@@ -121,6 +122,24 @@ TENCENT_SMS_TEMPLATE = {
     'register': 744511,
     'login': 744511
 }
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379", # 安装redis的主机的 IP 和 端口
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "CONNECTION_POOL_KWARGS": {
+                "max_connections": 1000,
+                "encoding": 'utf-8'
+            },
+            "PASSWORD": "88961199" # redis密码
+        }
+    }
+}
+
+
+
+
 STATIC_URL = '/static/'
 try:
     from .local_settings import *

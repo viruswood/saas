@@ -35,7 +35,7 @@ class RegisterModelForm(forms.ModelForm):
 
     class Meta:
         model = models.UserInfo
-        fields = "__all__"
+        fields = ('username','email','password','confirm_password','mobile_phone','code')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -46,5 +46,5 @@ class RegisterModelForm(forms.ModelForm):
 
 def register(request):
     form = RegisterModelForm()
-    return render(request, 'register.html', {"form": form})
+    return render(request, 'app01/register.html', {"form": form})
     pass
