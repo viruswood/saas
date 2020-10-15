@@ -8,11 +8,12 @@ from django.conf import settings
 
 def send_sms(request):
     tpl = request.GET.get('tpl')
-    template_id = settings.TENCENT_SMS_TEMPLATE(tpl)
+    print(tpl)
+    template_id = settings.TENCENT_SMS_TEMPLATE[tpl]
     if not template_id:
         return HttpResponse('模板不存在')
     code = random.randrange(1000, 9999)
-    res = send_sms_single('15705426039', template_id=template_id, template_param_list=[code, ])
+    res = send_sms_single('15705426039', template_id=template_id, template_param_list=[code, 1])
     print(res)
     return HttpResponse('成功')
 

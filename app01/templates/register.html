@@ -15,18 +15,32 @@
 
 
 <div class="account">
-    <h1>注册</h1>
+    <h1 style="text-align: center">注册</h1>
     <form>
         {% for field in form %}
-            <div class="form-group">
-                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                {{ field }}
+            {% if field.name == 'code' %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
 
-            </div>
+                    <div class="clearfix">
+                        <div class="col col-md-6" style="padding-left: 0;">   {{ field }}</div>
+                        <div class="col col-md-6">
+                            <input type="button" class="btn btn-default" value="点击获取验证码">
+                        </div>
+                    </div>
+
+                </div>
+            {% else %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                </div>
+            {% endif %}
         {% endfor %}
+        <div>
+            <button type="submit" class="btn btn-primary">注 册</button>
+        </div>
 
-
-        <button type="submit" class="btn btn-default">Submit</button>
     </form>
 
 </div>
